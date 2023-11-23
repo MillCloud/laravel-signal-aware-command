@@ -1,0 +1,65 @@
+{
+    "name": "millcloud/laravel-signal-aware-command",
+    "description": "Handle signals in artisan commands",
+    "keywords": [
+        "millcloud",
+        "laravel",
+        "laravel-signal-aware-command"
+    ],
+    "homepage": "https://github.com/millcloud/laravel-signal-aware-command",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Freek Van der Herten",
+            "email": "freek@millcloud.be",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "millcloud/laravel-package-tools": "^1.4.3",
+        "illuminate/contracts": "^8.35|^9.0|^10.0"
+    },
+    "require-dev": {
+        "ext-pcntl": "*",
+        "brianium/paratest": "^6.2",
+        "nunomaduro/collision": "^5.3|^6.0",
+        "orchestra/testbench": "^6.16|^7.0|^8.0",
+        "pestphp/pest-plugin-laravel": "^1.3",
+        "phpunit/phpunit": "^9.5",
+        "millcloud/laravel-ray": "^1.17"
+    },
+    "autoload": {
+        "psr-4": {
+            "MillCloud\\SignalAwareCommand\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MillCloud\\SignalAwareCommand\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "psalm": "vendor/bin/psalm",
+        "test": "./vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MillCloud\\SignalAwareCommand\\SignalAwareCommandServiceProvider"
+            ],
+            "aliases": {
+                "Signal": "MillCloud\\SignalAwareCommand\\Facades\\Signal"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
